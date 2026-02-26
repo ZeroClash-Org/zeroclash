@@ -31,6 +31,10 @@ func load() *BaseCfg {
 		cfg *BaseCfg
 	)
 
+	if cfgPath == "" {
+		logger.Get().Fatal("no configuration file specified")
+	}
+
 	logger.Get().Debug("loading configuration from " + cfgPath)
 
 	if _, err := os.Stat(cfgPath); os.IsNotExist(err) {

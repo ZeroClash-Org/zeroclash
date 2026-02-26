@@ -5,19 +5,9 @@ import (
 	"os"
 )
 
-var (
-	version bool
-	cfgPath string
-)
+var cfgPath string
 
 func FromArgs() {
-	flag.BoolVar(
-		&version,
-		"v",
-		false,
-		"current version of zeroclash",
-	)
-
 	flag.StringVar(
 		&cfgPath,
 		"cfg",

@@ -12,12 +12,6 @@ import (
 func main() {
 	FromArgs()
 
-	if version {
-		// TODO: Print current version (artifact informations)
-
-		return
-	}
-
 	cfg := cfg.Cfg(cfgPath)
 	_ = cfg
 
