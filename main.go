@@ -21,5 +21,5 @@ func main() {
 	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
 	<-c
 
-	logger.Get().Info("zeroclash shuting down...")
+	logger.Get().Info("zeroclash shutdown")
 }

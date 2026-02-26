@@ -9,7 +9,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-var cfgPath = "./cfg.yaml"
+var cfgPath string
 
 type BaseCfg struct{}
 
