@@ -11,7 +11,11 @@ import (
 
 var cfgPath string
 
-type BaseCfg struct{}
+type BaseCfg struct {
+	// TODO: Element type specify
+	Proxy []any `yaml:"proxy"`
+	Rule  []any `yaml:"rule"`
+}
 
 var global = singleton.New(load)
 
@@ -32,7 +36,7 @@ func load() *BaseCfg {
 	)
 
 	if cfgPath == "" {
-		logger.Get().Fatal("no configuration file specified")
+		logger.Get().Fatal("configuration file unspecified")
 	}
 
 	logger.Get().Debug("loading configuration from " + cfgPath)
