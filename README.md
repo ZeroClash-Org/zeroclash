@@ -3,6 +3,10 @@
 
 # Zeroclash - Different clash kernel
 
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ZeroClash-Org/zeroclash)
+![GitHub contributors](https://img.shields.io/github/contributors/ZeroClash-Org/zeroclash)
+![GitHub License](https://img.shields.io/github/license/ZeroClash-Org/zeroclash)
+
 ## Make Contributions
 
 Learn [Contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project).
