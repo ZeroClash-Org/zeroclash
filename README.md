@@ -22,8 +22,8 @@ After install prek, install hooks via `prek install -c .pre-commit-config.yaml`.
 ## Configuration
 
 ```yaml
-# [controlAddress] is the address for the control service to listen
-controlAddress: <string>
+# [controlAddr] is the address for the control service to listen
+controlAddr: <string>
 
 # [proxy] is a list of proxy, refer to [ProxyCfg]
 proxy: <[]ProxyCfg>
