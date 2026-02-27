@@ -4,12 +4,14 @@
 package main
 
 import (
-	"os"
+	"context"
 	"os/signal"
 	"syscall"
 
 	"gitlhub.com/scholar7r/zeroclash/internal/cfg"
+	"gitlhub.com/scholar7r/zeroclash/internal/control"
 	"gitlhub.com/scholar7r/zeroclash/internal/logger"
+	"go.uber.org/zap"
 )
 
 func main() {
@@ -20,9 +22,13 @@ func main() {
 
 	logger.Get().Info("zeroclash starting...")
 
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
-	<-c
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
 
+	if err := control.Run(ctx); err != nil {
+		logger.Get().Fatal("failed to run control service", zap.Error(err))
+	}
+
+	<-ctx.Done()
 	logger.Get().Info("zeroclash shutdown")
 }

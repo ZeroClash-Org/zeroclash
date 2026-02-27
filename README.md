@@ -19,6 +19,19 @@ We recommend to use prek as the pre-commit trigger to check new code, to install
 
 After install prek, install hooks via `prek install -c .pre-commit-config.yaml`.
 
+## Configuration
+
+```yaml
+# [controlAddress] is the address for the control service to listen
+controlAddress: <string>
+
+# [proxy] is a list of proxy, refer to [ProxyCfg]
+proxy: <[]ProxyCfg>
+
+# [rule] is a list of rule, refer to [RuleCfg]
+rule: <[]RuleCfg>
+```
+
 ## License
 
 This software is released under the MIT license.

@@ -11,10 +11,19 @@ import (
 
 var cfgPath string
 
+type ProxyCfg struct {
+	Name     string `yaml:"name"     json:"name"`
+	Server   string `yaml:"server"   json:"server"`
+	Port     uint16 `yaml:"port"     json:"port"`
+	Password string `yaml:"password" json:"-"`
+}
+
+type RuleCfg struct{}
+
 type BaseCfg struct {
-	// TODO: Element type specify
-	Proxy []any `yaml:"proxy"`
-	Rule  []any `yaml:"rule"`
+	ControlAddress string     `yaml:"controlAddress" json:"controlAddress"`
+	Proxy          []ProxyCfg `yaml:"proxy"          json:"proxy"`
+	Rule           []RuleCfg  `yaml:"rule"           json:"rule"`
 }
 
 var global = singleton.New(load)
@@ -55,6 +64,7 @@ func load() *BaseCfg {
 	}
 
 	logger.Get().Debug("loaded configuration successfully")
+	logger.Get().Debug("counts of configuration", zap.Int("proxy", len(cfg.Proxy)), zap.Int("rule", len(cfg.Rule)))
 
 	return cfg
 }
