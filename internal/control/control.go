@@ -31,7 +31,7 @@ func Run(ctx context.Context) error {
 	}()
 
 	return fbr.Listen(
-		cfg.Get().ControlAddress,
+		cfg.Get().ControlAddr,
 		fiber.ListenConfig{DisableStartupMessage: true},
 	)
 }

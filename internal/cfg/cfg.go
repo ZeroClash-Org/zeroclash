@@ -21,9 +21,9 @@ type ProxyCfg struct {
 type RuleCfg struct{}
 
 type BaseCfg struct {
-	ControlAddress string     `yaml:"controlAddress" json:"controlAddress"`
-	Proxy          []ProxyCfg `yaml:"proxy"          json:"proxy"`
-	Rule           []RuleCfg  `yaml:"rule"           json:"rule"`
+	ControlAddr string     `yaml:"controlAddr" json:"controlAddr"`
+	Proxy       []ProxyCfg `yaml:"proxy"       json:"proxy"`
+	Rule        []RuleCfg  `yaml:"rule"        json:"rule"`
 }
 
 var global = singleton.New(load)
