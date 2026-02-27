@@ -51,7 +51,7 @@ func load() *BaseCfg {
 	logger.Get().Debug("loading configuration from " + cfgPath)
 
 	if _, err = os.Stat(cfgPath); os.IsNotExist(err) {
-		logger.Get().Fatal("configuration file do not exists")
+		logger.Get().Fatal("configuration file does not exists", zap.String("path", cfgPath))
 	}
 
 	if b, err = os.ReadFile(cfgPath); err != nil {
