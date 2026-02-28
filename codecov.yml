@@ -1,5 +1,7 @@
 ignore:
-  - "**/internal/**"
+  - "internal/cfg/*.go"
+  - "internal/logger/*.go"
+  - "internal/control/*.go"
   - "main.go"
   - "cmd.go"
 
