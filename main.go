@@ -17,8 +17,7 @@ import (
 func main() {
 	FromArgs()
 
-	cfg := cfg.Cfg(cfgPath)
-	_ = cfg
+	_ = cfg.Cfg(cfgPath) // Load configuration for the first time
 
 	logger.Get().Info("zeroclash starting...")
 
