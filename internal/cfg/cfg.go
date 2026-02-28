@@ -13,17 +13,16 @@ var cfgPath string
 
 type ProxyCfg struct {
 	Name     string `yaml:"name"     json:"name"`
+	Type     string `yaml:"type"     json:"type"`
 	Server   string `yaml:"server"   json:"server"`
 	Port     uint16 `yaml:"port"     json:"port"`
 	Password string `yaml:"password" json:"-"`
 }
 
-type RuleCfg struct{}
-
 type BaseCfg struct {
 	ControlAddr string     `yaml:"controlAddr" json:"controlAddr"`
 	Proxy       []ProxyCfg `yaml:"proxy"       json:"proxy"`
-	Rule        []RuleCfg  `yaml:"rule"        json:"rule"`
+	Rule        []string   `yaml:"rule"        json:"rule"`
 }
 
 var global = singleton.New(load)
