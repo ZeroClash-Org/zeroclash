@@ -6,6 +6,7 @@
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ZeroClash-Org/zeroclash)
 ![GitHub contributors](https://img.shields.io/github/contributors/ZeroClash-Org/zeroclash)
 ![GitHub License](https://img.shields.io/github/license/ZeroClash-Org/zeroclash)
+[![codecov](https://codecov.io/gh/ZeroClash-Org/zeroclash/graph/badge.svg?token=1FZD2EAONP)](https://codecov.io/gh/ZeroClash-Org/zeroclash)
 
 ## Make Contributions
 
@@ -31,6 +32,10 @@ proxy: <[]ProxyCfg>
 # [rule] is a list of rule, refer to [RuleCfg]
 rule: <[]RuleCfg>
 ```
+
+## Coverage Trace
+
+![Coverage Trace](https://codecov.io/gh/ZeroClash-Org/zeroclash/graphs/sunburst.svg?token=1FZD2EAONP)
 
 ## License
 
