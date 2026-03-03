@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/scholar7r/sugar/singleton"
-	"gitlhub.com/scholar7r/zeroclash/internal/logger"
+	"github.com/scholar7r/zeroclash/internal/logger"
 	"go.uber.org/zap"
 	"gopkg.in/yaml.v2"
 )

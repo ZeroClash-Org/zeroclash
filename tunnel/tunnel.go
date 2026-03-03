@@ -3,7 +3,8 @@ package tunnel
 import (
 	"strings"
 
-	"gitlhub.com/scholar7r/zeroclash/internal/cfg"
+	"github.com/scholar7r/zeroclash/adaptor"
+	"github.com/scholar7r/zeroclash/internal/cfg"
 )
 
 type Tunnel struct {
