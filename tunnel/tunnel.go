@@ -19,8 +19,8 @@ func (x *Tunnel) Update() error {
 	return nil
 }
 
-func (x *Tunnel) updateProxy() map[string]any {
-	proxies := make(map[string]any)
+func (x *Tunnel) updateProxy() map[string]adaptor.ProxyAdaptor {
+	proxies := make(map[string]adaptor.ProxyAdaptor)
 
 	for _, v := range cfg.Get().Proxy {
 		switch strings.ToLower(v.Type) {
