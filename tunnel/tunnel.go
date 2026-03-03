@@ -8,7 +8,7 @@ import (
 )
 
 type Tunnel struct {
-	proxies map[string]*adaptor.ProxyAdaptor
+	proxies map[string]adaptor.ProxyAdaptor
 	rules   []any
 }
 
