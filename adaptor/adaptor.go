@@ -1,4 +1,4 @@
-package adapter
+package adaptor
 
 type ProxyAdaptor interface {
 	Name() string
