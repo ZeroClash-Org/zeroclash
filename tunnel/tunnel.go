@@ -3,11 +3,12 @@ package tunnel
 import (
 	"strings"
 
-	"gitlhub.com/scholar7r/zeroclash/internal/cfg"
+	"github.com/zeroclash-org/zeroclash/adaptor"
+	"github.com/zeroclash-org/zeroclash/internal/cfg"
 )
 
 type Tunnel struct {
-	proxies map[string]any
+	proxies map[string]adaptor.ProxyAdaptor
 	rules   []any
 }
 
@@ -18,13 +19,11 @@ func (x *Tunnel) Update() error {
 	return nil
 }
 
-func (x *Tunnel) updateProxy() map[string]any {
-	proxies := make(map[string]any)
+func (x *Tunnel) updateProxy() map[string]adaptor.ProxyAdaptor {
+	proxies := make(map[string]adaptor.ProxyAdaptor)
 
 	for _, v := range cfg.Get().Proxy {
-		switch v.Type {
-		// TODO: Create adapter instance for each proxy protocol
-		// Maybe we can do some design here for protocols will be added future?
+		switch strings.ToLower(v.Type) {
 		case "shadowsocks":
 			proxies[v.Name] = nil
 		case "hysteria":

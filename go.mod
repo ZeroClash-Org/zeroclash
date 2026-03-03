@@ -1,4 +1,4 @@
-module gitlhub.com/scholar7r/zeroclash
+module github.com/zeroclash-org/zeroclash
 
 go 1.25.7
 

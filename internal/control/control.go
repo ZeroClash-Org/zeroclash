@@ -5,7 +5,7 @@ import (
 	"context"
 
 	"github.com/gofiber/fiber/v3"
-	"gitlhub.com/scholar7r/zeroclash/internal/cfg"
+	"github.com/zeroclash-org/zeroclash/internal/cfg"
 )
 
 const (

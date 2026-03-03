@@ -8,9 +8,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"gitlhub.com/scholar7r/zeroclash/internal/cfg"
-	"gitlhub.com/scholar7r/zeroclash/internal/control"
-	"gitlhub.com/scholar7r/zeroclash/internal/logger"
+	"github.com/zeroclash-org/zeroclash/internal/cfg"
+	"github.com/zeroclash-org/zeroclash/internal/control"
+	"github.com/zeroclash-org/zeroclash/internal/logger"
 	"go.uber.org/zap"
 )
 
