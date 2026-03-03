@@ -7,7 +7,7 @@ import (
 )
 
 type Tunnel struct {
-	proxies map[string]any
+	proxies map[string]*adaptor.Adaptor
 	rules   []any
 }
 
@@ -22,9 +22,7 @@ func (x *Tunnel) updateProxy() map[string]any {
 	proxies := make(map[string]any)
 
 	for _, v := range cfg.Get().Proxy {
-		switch v.Type {
-		// TODO: Create adapter instance for each proxy protocol
-		// Maybe we can do some design here for protocols will be added future?
+		switch strings.ToLower(v.Type) {
 		case "shadowsocks":
 			proxies[v.Name] = nil
 		case "hysteria":
