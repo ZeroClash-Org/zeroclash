@@ -1,5 +1,5 @@
 package adaptor
 
-type ProxyAdaptor interface {
+type Adaptor interface {
 	Name() string
 }

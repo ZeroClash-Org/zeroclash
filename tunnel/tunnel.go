@@ -5,11 +5,12 @@ import (
 
 	"github.com/zeroclash-org/zeroclash/adaptor"
 	"github.com/zeroclash-org/zeroclash/internal/cfg"
+	"github.com/zeroclash-org/zeroclash/rule"
 )
 
 type Tunnel struct {
-	proxies map[string]adaptor.ProxyAdaptor
-	rules   []any
+	proxies map[string]adaptor.Adaptor
+	rules   []rule.Rule
 }
 
 func (x *Tunnel) Update() error {
@@ -19,8 +20,8 @@ func (x *Tunnel) Update() error {
 	return nil
 }
 
-func (x *Tunnel) updateProxy() map[string]adaptor.ProxyAdaptor {
-	proxies := make(map[string]adaptor.ProxyAdaptor)
+func (x *Tunnel) updateProxy() map[string]adaptor.Adaptor {
+	proxies := make(map[string]adaptor.Adaptor)
 
 	for _, v := range cfg.Get().Proxy {
 		switch strings.ToLower(v.Type) {
@@ -36,8 +37,8 @@ func (x *Tunnel) updateProxy() map[string]adaptor.ProxyAdaptor {
 	return proxies
 }
 
-func (x *Tunnel) updateRule() []any {
-	rules := []any{}
+func (x *Tunnel) updateRule() []rule.Rule {
+	rules := []rule.Rule{}
 
 	for _, v := range cfg.Get().Rule {
 		parts := trimAround(strings.Split(v, ","))
