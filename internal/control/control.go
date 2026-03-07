@@ -1,4 +1,4 @@
-// Package control provides the control ability
+// Package control provides the external control ability
 package control
 
 import (
