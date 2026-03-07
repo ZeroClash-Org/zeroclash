@@ -1,3 +1,5 @@
+// Package cfg provides ability to access to the global singleton instance
+// of configuation loaded
 package cfg
 
 import (
@@ -27,7 +29,7 @@ type BaseCfg struct {
 
 var global = singleton.New(load)
 
-func Cfg(path string) *BaseCfg {
+func FromFile(path string) *BaseCfg {
 	cfgPath = path
 	return global.Get()
 }
