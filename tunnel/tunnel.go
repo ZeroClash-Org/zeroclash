@@ -13,19 +13,30 @@ import (
 	"go.uber.org/zap"
 )
 
-type Tunnel struct {
+type Tunnel interface {
+	Update() error
+}
+
+type tunnel struct {
 	proxies map[string]adaptor.Adaptor
 	rules   []rule.Rule
 }
 
-func (x *Tunnel) Update() error {
+func NewTunnel() Tunnel {
+	return &tunnel{
+		proxies: make(map[string]adaptor.Adaptor),
+		rules:   []rule.Rule{},
+	}
+}
+
+func (x *tunnel) Update() error {
 	x.proxies = x.updateProxy()
 	x.rules = x.updateRule()
 
 	return nil
 }
 
-func (x *Tunnel) updateProxy() map[string]adaptor.Adaptor {
+func (x *tunnel) updateProxy() map[string]adaptor.Adaptor {
 	proxies := make(map[string]adaptor.Adaptor)
 
 	for _, v := range cfg.Get().Proxy {
@@ -44,7 +55,7 @@ func (x *Tunnel) updateProxy() map[string]adaptor.Adaptor {
 	return proxies
 }
 
-func (x *Tunnel) updateRule() []rule.Rule {
+func (x *tunnel) updateRule() []rule.Rule {
 	rules := []rule.Rule{}
 
 	for _, v := range cfg.Get().Rule {
