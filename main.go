@@ -15,9 +15,14 @@ import (
 )
 
 func main() {
+	// FromArgs initialize global variable cfgPath, externalControl via program arguments
 	FromArgs()
 
-	_ = cfg.Cfg(cfgPath) // Load configuration for the first time
+	cfg.FromFile(cfgPath) // Load configuration from the specified configuration file
+
+	if externalController != "" {
+		cfg.Get().ExternalController = externalController
+	}
 
 	logger.Get().Info("zeroclash starting...")
 

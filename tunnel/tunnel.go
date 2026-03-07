@@ -1,3 +1,5 @@
+// Package tunnel provides tunnel ability to forward data package to upstream
+// proxy server, like shadowsocks, hysteria and others.
 package tunnel
 
 import (

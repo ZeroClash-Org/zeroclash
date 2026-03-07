@@ -6,6 +6,8 @@ import (
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/zeroclash-org/zeroclash/internal/cfg"
+	"github.com/zeroclash-org/zeroclash/internal/logger"
+	"go.uber.org/zap"
 )
 
 const (
@@ -29,6 +31,11 @@ func Run(ctx context.Context) error {
 		<-ctx.Done()
 		_ = fbr.Shutdown()
 	}()
+
+	logger.Get().Info(
+		"starting external controller service...",
+		zap.String("listen", cfg.Get().ExternalController),
+	)
 
 	return fbr.Listen(
 		cfg.Get().ExternalController,
