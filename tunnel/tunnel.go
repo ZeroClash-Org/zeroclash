@@ -5,6 +5,7 @@ package tunnel
 import (
 	"strings"
 
+	"github.com/scholar7r/sugar/strung"
 	"github.com/zeroclash-org/zeroclash/adaptor"
 	"github.com/zeroclash-org/zeroclash/internal/cfg"
 	"github.com/zeroclash-org/zeroclash/internal/logger"
@@ -47,7 +48,7 @@ func (x *Tunnel) updateRule() []rule.Rule {
 	rules := []rule.Rule{}
 
 	for _, v := range cfg.Get().Rule {
-		parts := trimAround(strings.Split(v, ","))
+		parts := strung.TrimAround(strings.Split(v, ","), " ")
 		if len(parts) == 0 {
 			continue
 		}
@@ -64,14 +65,4 @@ func (x *Tunnel) updateRule() []rule.Rule {
 	}
 
 	return rules
-}
-
-func trimAround(v []string) []string {
-	var trimmed []string
-
-	for _, w := range v {
-		trimmed = append(trimmed, strings.Trim(w, " "))
-	}
-
-	return trimmed
 }
