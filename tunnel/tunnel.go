@@ -5,7 +5,9 @@ import (
 
 	"github.com/zeroclash-org/zeroclash/adaptor"
 	"github.com/zeroclash-org/zeroclash/internal/cfg"
+	"github.com/zeroclash-org/zeroclash/internal/logger"
 	"github.com/zeroclash-org/zeroclash/rule"
+	"go.uber.org/zap"
 )
 
 type Tunnel struct {
@@ -31,6 +33,8 @@ func (x *Tunnel) updateProxy() map[string]adaptor.Adaptor {
 			proxies[v.Name] = nil
 		case "hysteria2":
 			proxies[v.Name] = nil
+		default:
+			logger.Get().Warn("unknown protocol", zap.String("protocol", proxies[v.Name].Name()))
 		}
 	}
 
@@ -52,6 +56,8 @@ func (x *Tunnel) updateRule() []rule.Rule {
 		case "GEOIP":
 		case "IP-CIDR", "IP-CIDR6":
 		case "FINAL":
+		default:
+			logger.Get().Warn("unknown rule type", zap.String("ruleType", parts[0]))
 		}
 	}
 
@@ -59,11 +65,11 @@ func (x *Tunnel) updateRule() []rule.Rule {
 }
 
 func trimAround(v []string) []string {
-	var trimed []string
+	var trimmed []string
 
 	for _, w := range v {
-		trimed = append(trimed, strings.Trim(w, " "))
+		trimmed = append(trimmed, strings.Trim(w, " "))
 	}
 
-	return trimed
+	return trimmed
 }
